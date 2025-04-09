@@ -4,8 +4,8 @@ import {
   forwardRef,
   useState,
 } from 'react';
-import Text from './Text';
-import Input from './Input';
+import Text from '@/components/global/Text';
+import Input from '@/components/global/Input';
 
 interface TextLabelProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: React.ReactNode;

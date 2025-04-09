@@ -6,10 +6,10 @@ import {
   buttonColorMap,
   buttonWeakMap,
   buttonSizeMap,
-} from '../../styles/button';
+} from '@/styles/button';
 
 interface ButtonProps {
-  color: ButtonColor;
+  color?: ButtonColor;
   size?: ButtonSize;
   weak?: boolean;
   full?: boolean;
