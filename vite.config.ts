@@ -24,6 +24,7 @@ export default defineConfig({
       '@remote': path.resolve(__dirname, './src/remote'),
       '@constants': path.resolve(__dirname, './src/constants'),
       '@home': path.resolve(__dirname, './src/components/home'),
+      '@layouts': path.resolve(__dirname, './src/layouts'),
     },
   },
 });

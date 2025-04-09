@@ -4,7 +4,7 @@ import { getCard } from '@/remote/card';
 
 import Top from '@/components/global/Top';
 import List from '@/components/global/List';
-import FixedBottonButton from '@/components/global/FIxedBottonButton';
+import FixedBottomButton from '@/components/global/FixedBottomButton';
 const Card = () => {
   const params = useParams();
 
@@ -20,7 +20,7 @@ const Card = () => {
 
   const { name, promotion, tags, corpName, benefit } = data;
   const subTitle =
-    promotion != null ? removeHtmlTags(promotion.title) : tags.join(', ');
+    promotion != null ? removeHtmlTags(promotion.title) : tags?.join(',') ?? '';
 
   return (
     <div>
@@ -38,7 +38,7 @@ const Card = () => {
           );
         })}
       </ul>
-      <FixedBottonButton label='카드 추가하기' onClick={() => {}} />
+      <FixedBottomButton label='카드 추가하기' onClick={() => {}} />
     </div>
   );
 };

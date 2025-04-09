@@ -17,7 +17,7 @@ import { Card } from '@/model/card';
 export async function getCards(page?: QuerySnapshot<Card>) {
   const cardQuery =
     page == null
-      ? query(collection(db, COLLECTIONS.CARD), limit(10))
+      ? query(collection(db, COLLECTIONS.CARD), limit(20))
       : query(collection(db, COLLECTIONS.CARD), startAfter(page), limit(10));
 
   const cardSnapshot = await getDocs(cardQuery);
