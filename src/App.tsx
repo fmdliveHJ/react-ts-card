@@ -5,16 +5,14 @@ import Card from '@/pages/Card';
 import MainLayout from '@/layouts/MainLayout';
 import Join from '@/pages/Join';
 import Login from '@/pages/Login';
+import PrivateRoute from '@/components/auth/PrivateRoute';
+import Apply from '@/pages/Apply';
 function App() {
   const router = createBrowserRouter([
     {
       path: '/',
       element: <MainLayout />,
       children: [
-        {
-          path: '/card/:id',
-          element: <Card />,
-        },
         {
           path: '/',
           element: <Home />,
@@ -26,6 +24,18 @@ function App() {
         {
           path: '/login',
           element: <Login />,
+        },
+        {
+          path: '/card/:id',
+          element: <Card />,
+        },
+        {
+          path: '/apply/:id',
+          element: (
+            <PrivateRoute>
+              <Apply />
+            </PrivateRoute>
+          ),
         },
       ],
     },

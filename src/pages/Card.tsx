@@ -1,18 +1,41 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { getCard } from '@/remote/card';
+import { useCallback } from 'react';
+import { useUser } from '@/hooks/auth/useUser';
 
 import Top from '@/components/global/Top';
 import List from '@/components/global/List';
 import FixedBottomButton from '@/components/global/FixedBottomButton';
+import { useAlertContext } from '@/context/AlertContext';
 const Card = () => {
   const params = useParams();
+  const navigate = useNavigate();
+  const user = useUser();
 
+  const { open } = useAlertContext();
   const { data } = useQuery({
     queryKey: ['card', params.id],
     queryFn: () => getCard(params.id as string),
     enabled: !!params.id,
   });
+
+  const moveToApply = useCallback(() => {
+    if (user == null) {
+      open({
+        title: '로그인이 필요해요',
+        onButtonClick: () => {
+          navigate('/login');
+        },
+      });
+      return;
+    }
+
+    if (user) {
+      navigate(`/apply/${params.id}`);
+      return;
+    }
+  }, [params.id, user, open, navigate]);
 
   if (data == null) {
     return null;
@@ -38,7 +61,7 @@ const Card = () => {
           );
         })}
       </ul>
-      <FixedBottomButton label='카드 추가하기' onClick={() => {}} />
+      <FixedBottomButton label='신청하기' onClick={moveToApply} />
     </div>
   );
 };
