@@ -84,7 +84,7 @@ const Form = ({ onSubmit }: { onSubmit: (formValues: FormValues) => void }) => {
       />
       <FixedBottomButton
         label='회원가입'
-        disabled={disabledAction === false}
+        disabled={!disabledAction}
         onClick={() => {
           onSubmit(formValues);
         }}

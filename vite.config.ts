@@ -25,6 +25,7 @@ export default defineConfig({
       '@constants': path.resolve(__dirname, './src/constants'),
       '@home': path.resolve(__dirname, './src/components/home'),
       '@layouts': path.resolve(__dirname, './src/layouts'),
+      '@atoms': path.resolve(__dirname, './src/atoms'),
     },
   },
 });
