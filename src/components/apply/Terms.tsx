@@ -2,9 +2,10 @@ import Agreement from '../global/Agreement';
 import { useState, useCallback } from 'react';
 import Text from '../global/Text';
 import { TERMS_LIST } from '@/constants/apply';
+import { TermsList } from '@/model/apply';
 import FixedBottomButton from '../global/FixedBottomButton';
 
-const Terms = ({ onNext }: { onNext: (terms: string[]) => void }) => {
+const Terms = ({ onNext }: { onNext: (terms: TermsList['terms']) => void }) => {
   const [checkedTerms, setCheckedTerms] = useState(
     TERMS_LIST.reduce<Record<string, boolean>>((acc, list) => {
       return {

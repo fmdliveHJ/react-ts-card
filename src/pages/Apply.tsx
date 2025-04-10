@@ -4,11 +4,19 @@ import Terms from '@/components/apply/Terms';
 import CardInfo from '@/components/apply/CardInfo';
 import BasicInfo from '@/components/apply/BasicInfo';
 
-const Apply = () => {
-  const [step, setStep] = useState(0);
+import { TermsList } from '@/model/apply';
 
-  const handleTermsChange = (terms: string[]) => {
+const Apply = () => {
+  const [step, setStep] = useState(1);
+
+  const handleTermsChange = (terms: TermsList['terms']) => {
     console.log(terms);
+  };
+
+  const handleBasicInfoChange = (
+    info: Pick<TermsList, 'salary' | 'creditScore' | 'payDate'>
+  ) => {
+    console.log(info);
   };
 
   const renderStep = () => {
@@ -16,9 +24,9 @@ const Apply = () => {
       case 0:
         return <Terms onNext={handleTermsChange} />;
       case 1:
-        return <CardInfo />;
+        return <BasicInfo onNext={handleBasicInfoChange} />;
       case 2:
-        return <BasicInfo />;
+        return <CardInfo />;
       default:
         return null;
     }
