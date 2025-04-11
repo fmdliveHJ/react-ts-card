@@ -1,5 +1,6 @@
 const COLLECTIONS = {
   CARD: 'CARD',
+  CARD_APPLY: 'CARD_APPLY',
   ADBANNER: 'AD_BANNER',
   USER: 'USER',
 };

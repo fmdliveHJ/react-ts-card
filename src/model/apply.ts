@@ -6,6 +6,13 @@ export interface Terms {
   link?: string;
 }
 
+export const APPLY_STATUS = {
+  REDAY: 'REDAY',
+  PROGRESS: 'PROGRESS',
+  COMPLETE: 'COMPLETE',
+  REJECT: 'REJECT',
+} as const;
+
 export interface TermsList {
   userId: User['uid'];
   terms: Array<Terms['id']>;
@@ -14,6 +21,10 @@ export interface TermsList {
   salary: string;
   creditScore: string;
   payDate: string;
+  isMaster: boolean;
+  isPostpay: boolean;
+  isHipass: boolean;
+  status: keyof typeof APPLY_STATUS;
 }
 
 export interface Option {
