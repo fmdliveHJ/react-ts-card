@@ -1,12 +1,37 @@
 import { TermsList } from '@/model/apply';
 import COLLECTIONS from '@/constants';
-import { collection, addDoc } from 'firebase/firestore';
+import {
+  collection,
+  addDoc,
+  query,
+  where,
+  getDocs,
+  updateDoc,
+} from 'firebase/firestore';
 import { db } from './firebase';
 
-const apply = async (terms: TermsList) => {
-  const applyRef = collection(db, COLLECTIONS.CARD_APPLY);
-  const docRef = await addDoc(applyRef, terms);
-  return docRef;
-};
+export async function applyDoc(terms: TermsList) {
+  return addDoc(collection(db, COLLECTIONS.CARD_APPLY), terms);
+}
 
-export default apply;
+export async function updateCard({
+  cardId,
+  userId,
+  terms,
+}: {
+  cardId?: string;
+  userId?: string;
+  terms: Partial<TermsList>;
+}) {
+  const snapshot = await getDocs(
+    query(
+      collection(db, COLLECTIONS.CARD_APPLY),
+      where('cardId', '==', cardId),
+      where('userId', '==', userId)
+    )
+  );
+
+  const [doc] = snapshot.docs;
+
+  updateDoc(doc.ref, terms);
+}

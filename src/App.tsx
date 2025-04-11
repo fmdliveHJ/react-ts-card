@@ -7,6 +7,8 @@ import Join from '@/pages/Join';
 import Login from '@/pages/Login';
 import PrivateRoute from '@/components/auth/PrivateRoute';
 import Apply from '@/pages/Apply';
+import Finish from '@/pages/Finish';
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -34,6 +36,14 @@ function App() {
           element: (
             <PrivateRoute>
               <Apply />
+            </PrivateRoute>
+          ),
+        },
+        {
+          path: '/apply/finish',
+          element: (
+            <PrivateRoute>
+              <Finish />
             </PrivateRoute>
           ),
         },

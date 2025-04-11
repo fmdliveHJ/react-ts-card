@@ -1,5 +1,5 @@
 import { useMutation } from '@tanstack/react-query';
-import apply from '@/remote/apply';
+import { applyDoc } from '@/remote/apply';
 import { TermsList } from '@/model/apply';
 import { useAlertContext } from '@/context/AlertContext';
 
@@ -12,9 +12,10 @@ const useApplyMutation = ({ onSuccess, onError }: UseApplyMutationProps) => {
   const { open } = useAlertContext();
 
   return useMutation({
-    mutationFn: (terms: TermsList) => apply(terms),
+    mutationFn: (terms: TermsList) => applyDoc(terms),
     onSuccess: () => {
       onSuccess();
+      console.log('신청 완료 mutation');
     },
     onError: () => {
       open({
