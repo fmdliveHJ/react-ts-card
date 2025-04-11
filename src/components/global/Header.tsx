@@ -44,7 +44,7 @@ const Header = () => {
   return (
     <Flex justify='space-between' align='center' css={HeaderStyle}>
       <Link to='/'>
-        <Text>Header</Text>
+        <Text>Home</Text>
       </Link>
       {renderButton()}
     </Flex>

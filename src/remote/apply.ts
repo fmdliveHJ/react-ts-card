@@ -35,3 +35,28 @@ export async function updateCard({
 
   updateDoc(doc.ref, terms);
 }
+// 카드 발급 확인
+export async function confirmCard({
+  userId,
+  cardId,
+}: {
+  userId: string;
+  cardId: string;
+}) {
+  const snapshot = await getDocs(
+    query(
+      collection(db, COLLECTIONS.CARD_APPLY),
+      where('cardId', '==', cardId),
+      where('userId', '==', userId)
+    )
+  );
+
+  if (snapshot.docs.length === 0) {
+    // 데이터가 하나도 없다면
+    return null;
+  }
+
+  const [doc] = snapshot.docs; // 유저가 신청한 정보
+
+  return doc.data() as TermsList;
+}

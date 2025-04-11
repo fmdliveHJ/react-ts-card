@@ -8,7 +8,7 @@ import Login from '@/pages/Login';
 import PrivateRoute from '@/components/auth/PrivateRoute';
 import Apply from '@/pages/Apply';
 import Finish from '@/pages/Finish';
-
+import { Suspense } from 'react';
 function App() {
   const router = createBrowserRouter([
     {
@@ -35,7 +35,9 @@ function App() {
           path: '/apply/:id',
           element: (
             <PrivateRoute>
-              <Apply />
+              <Suspense fallback={<div>Loading...</div>}>
+                <Apply />
+              </Suspense>
             </PrivateRoute>
           ),
         },
