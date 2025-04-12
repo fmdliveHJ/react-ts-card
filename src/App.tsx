@@ -9,6 +9,8 @@ import PrivateRoute from '@/components/auth/PrivateRoute';
 import Apply from '@/pages/Apply';
 import Finish from '@/pages/Finish';
 import { Suspense } from 'react';
+import MyPage from '@/pages/MyPage';
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -46,6 +48,14 @@ function App() {
           element: (
             <PrivateRoute>
               <Finish />
+            </PrivateRoute>
+          ),
+        },
+        {
+          path: '/myPage',
+          element: (
+            <PrivateRoute>
+              <MyPage />
             </PrivateRoute>
           ),
         },
