@@ -5,7 +5,7 @@ import { useUser } from '@/hooks/auth/useUser';
 import { auth } from '@/remote/firebase';
 import { signOut } from 'firebase/auth';
 import { useCallback } from 'react';
-import MyPageImage from '@/components/mypage/myPageImage';
+import MyPageImage from '@/components/mypage/MyPageImage';
 import Spacing from '@/components/global/Spacing';
 
 const MyPage = () => {

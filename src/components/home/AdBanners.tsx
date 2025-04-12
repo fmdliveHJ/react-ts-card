@@ -54,7 +54,7 @@ const Container = styled.div`
 
 const bannerContainerStyles = css`
   padding: 16px;
-  background-color: ${colors.grey};
+  background-color: ${colors.gray};
   border-radius: 4px;
 `;
 

@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { useCallback } from 'react';
 import { colors } from '@/styles/colorPalette';
 import { useUser } from '@/hooks/auth/useUser';
-import MyPageImage from '@/components/mypage/myPageImage';
+import MyPageImage from '@/components/mypage/MyPageImage';
 import Flex from './Flex';
 import Text from './Text';
 import Button from './Button';
