@@ -6,11 +6,12 @@ import BasicInfo from '@/components/apply/BasicInfo';
 
 import { TermsList, APPLY_STATUS } from '@/model/apply';
 import { useUser } from '@/hooks/auth/useUser';
-
+import ProgressBar from '@/components/global/ProgressBar';
 const ApplyIndex = ({ onSubmit }: { onSubmit: (terms: TermsList) => void }) => {
   const user = useUser();
   const { id } = useParams() as { id: string };
   const storageKey = `apply-${user?.uid}-${id}`;
+  const LAST_STEP = 3;
   const [apply, setApply] = useState<Partial<TermsList>>(() => {
     const localData = localStorage.getItem(storageKey);
 
@@ -79,7 +80,12 @@ const ApplyIndex = ({ onSubmit }: { onSubmit: (terms: TermsList) => void }) => {
         return null;
     }
   };
-  return <div>{renderStep()}</div>;
+  return (
+    <div>
+      <ProgressBar progress={apply.step / LAST_STEP} />
+      {renderStep()}
+    </div>
+  );
 };
 
 export default ApplyIndex;
