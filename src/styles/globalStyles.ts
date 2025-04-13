@@ -4,6 +4,38 @@ import { colorPalette } from './colorPalette';
 export default css`
   ${colorPalette}
 
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/Pretendard-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/Pretendard-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Pretendard';
+    src: url('/fonts/Pretendard-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
     --dimmed-zindex: 10;
     --alert-zindex: 11;
@@ -97,6 +129,7 @@ export default css`
     font: inherit;
     vertical-align: baseline;
     box-sizing: border-box;
+    font-family: 'Pretendard', sans-serif;
   }
   /* HTML5 display-role reset for older browsers */
   article,
