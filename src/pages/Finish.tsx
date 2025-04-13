@@ -3,10 +3,13 @@ import { parse } from 'qs';
 import Flex from '@/components/global/Flex';
 import Text from '@/components/global/Text';
 import FixedBottomButton from '@/components/global/FixedBottomButton';
+import { useNavigate } from 'react-router-dom';
 const Finish = () => {
   const { success } = parse(window.location.search, {
     ignoreQueryPrefix: true,
   }) as { success: string };
+
+  const navigate = useNavigate();
 
   return (
     <Flex>
@@ -19,7 +22,7 @@ const Finish = () => {
       <FixedBottomButton
         label='확인'
         onClick={() => {
-          window.history.back();
+          navigate('/');
         }}
       />
     </Flex>
