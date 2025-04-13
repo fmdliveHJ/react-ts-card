@@ -26,6 +26,7 @@ export default defineConfig({
       '@home/*': path.resolve(__dirname, './src/components/home/*'),
       '@layouts/*': path.resolve(__dirname, './src/layouts/*'),
       '@atoms/*': path.resolve(__dirname, './src/atoms/*'),
+      '@assets/*': path.resolve(__dirname, './public/assets/*'),
     },
   },
 });

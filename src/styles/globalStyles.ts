@@ -6,7 +6,7 @@ export default css`
 
   @font-face {
     font-family: 'Pretendard';
-    src: url('/fonts/Pretendard-Regular.woff') format('woff');
+    src: url('/assets/font/Pretendard-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -14,7 +14,7 @@ export default css`
 
   @font-face {
     font-family: 'Pretendard';
-    src: url('/fonts/Pretendard-Medium.woff') format('woff');
+    src: url('/assets/font/Pretendard-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -22,7 +22,7 @@ export default css`
 
   @font-face {
     font-family: 'Pretendard';
-    src: url('/fonts/Pretendard-Bold.woff') format('woff');
+    src: url('/assets/font/Pretendard-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -30,7 +30,7 @@ export default css`
 
   @font-face {
     font-family: 'Pretendard';
-    src: url('/fonts/Pretendard-Black.woff') format('woff');
+    src: url('/assets/font/Pretendard-Black.woff') format('woff');
     font-weight: 900;
     font-style: normal;
     font-display: swap;
