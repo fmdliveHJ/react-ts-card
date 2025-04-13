@@ -5,8 +5,8 @@ import { colors } from '@/styles/colorPalette';
 import { useUser } from '@/hooks/auth/useUser';
 import MyPageImage from '@/components/mypage/MyPageImage';
 import Flex from './Flex';
-import Text from './Text';
 import Button from './Button';
+import { IconHome } from '@/components/icons';
 
 const Header = () => {
   const location = useLocation();
@@ -37,7 +37,14 @@ const Header = () => {
   return (
     <Flex justify='space-between' align='center' css={HeaderStyle}>
       <Link to='/'>
-        <Text>Home</Text>
+        <IconHome
+          style={{
+            width: 24,
+            height: 24,
+            stroke: colors.black,
+            fill: colors.black,
+          }}
+        />
       </Link>
       {renderButton()}
     </Flex>
