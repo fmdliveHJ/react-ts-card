@@ -50,7 +50,7 @@ const Card = () => {
     <div>
       <Top title={`${corpName} ${name}`} description={subTitle} />
       <ul>
-        {benefit.map((text, index) => {
+        {benefit?.map((text, index) => {
           return (
             <List
               key={text}

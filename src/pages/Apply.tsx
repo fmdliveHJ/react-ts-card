@@ -9,6 +9,12 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useUser } from '@/hooks/auth/useUser';
 import { useAlertContext } from '@/context/AlertContext';
 
+const STATUS_MESSAGE = {
+  [APPLY_STATUS.COMPLETE]: '이미 발급이 완료된 카드입니다',
+  [APPLY_STATUS.REDAY]: '카드 발급 진행중입니다.',
+  [APPLY_STATUS.REJECT]: '카드 발급에 실패했습니다',
+};
+
 const Apply = () => {
   const navigate = useNavigate();
   const [ready, setReady] = useState(false);
@@ -95,7 +101,7 @@ const Apply = () => {
   }
 
   if (ready || isLoading) {
-    return <div>로딩중</div>;
+    return <div>{STATUS_MESSAGE[status]}</div>;
   }
 
   return <ApplyIndex onSubmit={mutate} />;

@@ -3,11 +3,10 @@ import { css } from '@emotion/react';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import { getAdBanners } from '@/remote/adBanner';
+import { colors } from '@/styles/colorPalette';
 import Flex from '../global/Flex';
 import Text from '../global/Text';
-import { colors } from '@/styles/colorPalette';
 
 import 'swiper/css';
 
@@ -16,6 +15,8 @@ const AdBanners = () => {
     queryKey: ['adBanners'],
     queryFn: () => getAdBanners(),
   });
+
+  console.log(data);
 
   if (data == null || isLoading) {
     return (
